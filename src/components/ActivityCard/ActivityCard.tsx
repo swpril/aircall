@@ -41,7 +41,8 @@ export const ActivityCard = ({
       onMouseLeave={() => setActiveId('')}>
       {activeId === activity.id && (
         <Button
-          onClick={async () => {
+          onClick={async event => {
+            event.preventDefault();
             await markArchiveOrUnarchiveByCallId(
               activeId,
               !activity.is_archived
@@ -83,10 +84,10 @@ export const ActivityCard = ({
         </span>
       </div>
 
-      <p className='time d-flex justify-between align-center'>
-        {time}
+      <div className='d-flex justify-between align-center timezone'>
+        <p className='time'>{time}</p>
         <span className='zone'>{isPM ? 'PM' : 'AM'}</span>
-      </p>
+      </div>
     </div>
   );
 };

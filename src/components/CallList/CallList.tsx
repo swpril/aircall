@@ -16,18 +16,20 @@ export const CallList = ({
     new Date(activity.created_at).toDateString()
   ) as { [key: string]: IActivity[] };
 
-  return Object.entries(groupedByDate).map(([date, callLogs]) => {
-    return (
-      <React.Fragment key={date}>
-        <Divider textAlign='center'>{date}</Divider>
-        {callLogs.map(activity => (
-          <ActivityCard
-            key={activity.id}
-            activity={activity}
-            onArchiveButtonClick={onArchiveButtonClick}
-          />
-        ))}
-      </React.Fragment>
-    );
-  });
+  return Object.entries(groupedByDate)
+    .sort(([dateA], [dateB]) => +new Date(dateB) - +new Date(dateA))
+    .map(([date, callLogs]) => {
+      return (
+        <React.Fragment key={date}>
+          <Divider textAlign='center'>{date}</Divider>
+          {callLogs.map(activity => (
+            <ActivityCard
+              key={activity.id}
+              activity={activity}
+              onArchiveButtonClick={onArchiveButtonClick}
+            />
+          ))}
+        </React.Fragment>
+      );
+    });
 };

@@ -11,10 +11,13 @@ p {
   margin: 0;
 }
 
+.timezone {
+  width: 85px;
+}
+
 .time {
   border-left: 1px dashed black;
   padding-left: 8px;
-  width: 60px;
 }
 
 .zone {
@@ -22,6 +25,7 @@ p {
   border-radius: 4px;
   margin-left: 4px;
   border-right: none;
+  padding: 2px 6px;
 }
 
 .card button {
