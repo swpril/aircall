@@ -76,17 +76,19 @@ export const ActivityCard = ({
             <p className='from'>Caller ID: {activity?.id || ''}</p>
           )}
         </div>
+      </div>
 
+      <div className='d-flex align-center' style={{ gap: '4px' }}>
         <span className='d-flex align-center'>
           {CallTypeComponent}
           {activity.call_type !== 'missed' &&
             getMinutesFormatFromSeconds(activity.duration)}
         </span>
-      </div>
 
-      <div className='d-flex justify-between align-center timezone'>
-        <p className='time'>{time}</p>
-        <span className='zone'>{isPM ? 'PM' : 'AM'}</span>
+        <div className='d-flex justify-between align-center timezone'>
+          <p className='time'>{time}</p>
+          <span className='zone'>{isPM ? 'PM' : 'AM'}</span>
+        </div>
       </div>
     </div>
   );
