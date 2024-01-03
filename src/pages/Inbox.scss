@@ -1,0 +1,15 @@
+.main {
+  height: 400px;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+.main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.main {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
